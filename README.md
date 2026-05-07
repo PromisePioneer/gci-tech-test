@@ -6,7 +6,7 @@
 
 | | Teknologi |
 |---|---|
-| Backend | Laravel 13, Laravel Sanctum, SQLite |
+| Backend | Laravel 13, Laravel Sanctum, PostgresSQL |
 | Frontend | Next.js 16 (App Router), DaisyUI, Zustand, TypeScript |
 
 ---
