@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
@@ -53,7 +54,11 @@ class AuthController extends Controller
 
         $user->tokens()->delete();
 
-        $token = $user->createToken('auth_token')->plainTextToken;
+        $token = $user->createToken(
+            'auth_token',
+            ['*'],
+            Carbon::now()->addHours(24) // expired 24 jam dari sekarang
+        )->plainTextToken;
 
         return response()->json([
             'message' => 'Login berhasil.',
